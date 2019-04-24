@@ -19,4 +19,5 @@
     }
     
     add_action( 'after_setup_theme', 'lc_features' );
+
 ?>
