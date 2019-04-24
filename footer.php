@@ -50,7 +50,17 @@
 <?php if (is_page()) {   ?>
     <script type="text/javascript">
         var el = document.getElementsByClassName("current-page-ancestor");
-        el[0].className += " " + 'current-menu-item';
+        if(el.length > 0) {
+            el[0].className += " " + 'current-menu-item';
+        }
+    </script>
+<?php } ?>
+<?php if (is_single()) {   ?>
+    <script type="text/javascript">
+        var el = document.getElementsByClassName("current_page_parent");
+        if(el.length > 0) {
+            el[0].className += " " + 'current-menu-item';
+        }
     </script>
 <?php } ?>
 </body>
