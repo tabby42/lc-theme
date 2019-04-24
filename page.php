@@ -23,7 +23,10 @@
                 <?php }
         ?>
         <?php
-        if( $parentId) { ?>
+        $testArray = get_pages( array(
+            'child_of' => get_the_ID( )
+        ) );
+        if( $parentId or  $testArray ) { ?>
             <div class="page-links">
                 <h2 class="page-links__title"><a href="<?php echo get_the_permalink( $parentId); ?>"><?php echo get_the_title($parentId); ?> </a></h2>
                 <ul class="min-list">
@@ -36,7 +39,8 @@
 
                     wp_list_pages( array(
                         'title_li' => NULL,
-                        'child_of' => $findChildren
+                        'child_of' => $findChildren,
+                        'sort_column' => 'menu_order'
                     ) ); 
                     ?>
                 </ul>
