@@ -47,3 +47,7 @@
 .main-navigation a:hover {
   color: $beige;
 }
+
+.sub-menu {
+  display: none;
+}

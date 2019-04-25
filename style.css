@@ -1484,6 +1484,10 @@ body.login {
   color: #FAF0CA;
 }
 
+.sub-menu {
+  display: none;
+}
+
 .page-banner {
   background-color: #000;
   padding: 80px 0 40px 0;
