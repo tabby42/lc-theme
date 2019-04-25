@@ -63,5 +63,13 @@
         }
     </script>
 <?php } ?>
+<?php if (is_page( 'past-events' )) {   ?>
+    <script type="text/javascript">
+        var el = document.getElementsByClassName("current-menu-ancestor");
+        if(el.length > 0) {
+            el[0].className += " " + 'current-menu-item';
+        }
+    </script>
+<?php } ?>
 </body>
 </html>
