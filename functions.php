@@ -14,10 +14,27 @@
         register_nav_menu( 'mainMenu', 'Main Menu' );
         register_nav_menu( 'footerMenuOne', 'Footer Menu 1' );
         register_nav_menu( 'footerMenuTwo', 'Footer Menu 2' );
-
-
     }
     
     add_action( 'after_setup_theme', 'lc_features' );
 
+    function lc_adjust_queries ( $query ) {
+        $today = date('Ymd');
+        if ( !is_admin() && is_post_type_archive( 'event' ) && $query-> is_main_query() ) {
+            $query->set( 'posts_per_page', 4 );
+            $query->set( 'meta_key', 'event_date' );
+            $query->set( 'orderby', 'meta_value_num' );
+            $query->set( 'order', 'ASC' );
+            $query->set( 'meta_query', array(
+                array(
+                    'key' => 'event_date',
+                    'compare' => '>=',
+                    'value' => $today,
+                    'type' => 'numeric'
+                 )
+            ) );
+        }
+    }
+
+    add_action( 'pre_get_posts', 'lc_adjust_queries' );
 ?>
