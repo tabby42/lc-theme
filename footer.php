@@ -55,9 +55,26 @@
         }
     </script>
 <?php } ?>
-<?php if (is_single()) {   ?>
+<?php if (is_single( 'post' )) {   ?>
     <script type="text/javascript">
         var el = document.getElementsByClassName("current_page_parent");
+        if(el.length > 0) {
+            el[0].className += " " + 'current-menu-item';
+        }
+    </script>
+<?php } ?>
+<?php if (is_singular( 'event' )) {  ?>
+    <script type="text/javascript">
+        var el = document.getElementsByClassName("menu-item-object-event");
+        console.log(el);
+        if(el.length > 0) {
+            el[0].className += " " + 'current-menu-item';
+        }
+    </script>
+<?php } ?>
+<?php if (is_singular( 'program' )) {   ?>
+    <script type="text/javascript">
+        var el = document.getElementsByClassName("menu-item-object-program");
         if(el.length > 0) {
             el[0].className += " " + 'current-menu-item';
         }
