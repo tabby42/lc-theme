@@ -11,6 +11,7 @@
 
     function lc_features() {
         add_theme_support( 'title-tag' );
+        add_theme_support( 'post-thumbnails', array( 'post', 'professor' ) );
         register_nav_menu( 'mainMenu', 'Main Menu' );
         register_nav_menu( 'footerMenuOne', 'Footer Menu 1' );
         register_nav_menu( 'footerMenuTwo', 'Footer Menu 2' );
